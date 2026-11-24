@@ -163,9 +163,17 @@ footer .cp{grid-column:1/-1;border-top:1px solid #3a2f28;padding-top:16px;font-s
 [dir=rtl] .toast{transform:translate(50%,120px)}
 .toast.on{transform:translate(-50%,0)}[dir=rtl] .toast.on{transform:translate(50%,0)}
 .fcart{display:none}
+.dot{position:absolute;top:3px;inset-inline-end:3px;width:10px;height:10px;border-radius:50%;background:#1f8f55;border:2px solid var(--sf)}
+.auth{max-width:480px;margin:0 auto}
+.lnk{background:none;border:0;color:var(--gold);text-decoration:underline;padding:6px 0;font-weight:600;justify-self:start}
+.or{display:flex;align-items:center;gap:10px;color:var(--mut);font-size:14px}.or::before,.or::after{content:"";flex:1;height:1px;background:var(--ln)}
+.mo{border:1px solid var(--ln);border-radius:14px;padding:12px 14px;display:grid;gap:4px;background:var(--sf);margin-bottom:10px}
+.mo small{color:var(--mut)}
+.st{font-size:13px;font-weight:700;padding:2px 10px;border-radius:10px;background:var(--gl)}
+.st-cancelled{background:#f3d9dd;color:#a8424f}.st-delivered{background:#d6eedd;color:#2f8a57}
 @media(max-width:1000px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}.feats{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:820px){nav.main{display:none}.menu{display:grid}.hero{grid-template-columns:1fr}.stage{aspect-ratio:1.5}.promo .wrap,.ab{grid-template-columns:1fr}.pm{grid-template-columns:1fr}.pm .pa{aspect-ratio:1.4}}
-@media(max-width:600px){.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.pb{padding:10px 12px 12px}.pb h3{font-size:15px}.pr b{font-size:16px}.cats{grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.cat h3{font-size:16px}.cat small{display:none}.cat div.t{padding:10px}.feats{grid-template-columns:1fr}footer .wrap{grid-template-columns:1fr 1fr}footer .wrap>div:first-child{grid-column:1/-1}.hd{gap:8px}.logo b{font-size:22px}.f .two{grid-template-columns:1fr}.fcart{display:flex;position:fixed;bottom:14px;inset-inline:16px;z-index:35;justify-content:space-between}.ib.cart{display:none}.code{flex-direction:column;align-items:start}footer{padding-bottom:90px}}
+@media(max-width:600px){.logo small{display:none}.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.pb{padding:10px 12px 12px}.pb h3{font-size:15px}.pr b{font-size:16px}.cats{grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.cat h3{font-size:16px}.cat small{display:none}.cat div.t{padding:10px}.feats{grid-template-columns:1fr}footer .wrap{grid-template-columns:1fr 1fr}footer .wrap>div:first-child{grid-column:1/-1}.hd{gap:8px}.logo b{font-size:22px}.f .two{grid-template-columns:1fr}.fcart{display:flex;position:fixed;bottom:14px;inset-inline:16px;z-index:35;justify-content:space-between}.ib.cart{display:none}.code{flex-direction:column;align-items:start}footer{padding-bottom:90px}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
@@ -177,6 +185,7 @@ footer .cp{grid-column:1/-1;border-top:1px solid #3a2f28;padding-top:16px;font-s
   <a href="#home" class="logo"><svg width="34" height="34" viewBox="0 0 40 40"><circle cx="20" cy="20" r="18" fill="none" stroke="var(--gold)" stroke-width="1.5"/><path d="M11 12l9 17 9-17" fill="none" stroke="var(--ink)" stroke-width="2.4" stroke-linejoin="round"/></svg><b data-i="brand">فيلورا</b><small data-i="brand2">Velora</small></a>
   <nav class="main"><a href="#home" data-i="nHome">الرئيسية</a><a href="#shop" data-i="nShop">المتجر</a><a href="#cats" data-i="nCats">الأقسام</a><a href="#about" data-i="nAbout">من نحن</a><a href="#contact" data-i="nContact">تواصل معنا</a></nav>
   <button class="lang" id="langBtn">English</button>
+  <button class="ib" id="accBtn" aria-label="Account"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg><span class="dot" id="accDot" hidden></span></button>
   <button class="ib" id="favBtn" aria-label="Wishlist"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg><span class="cnt" id="favCnt">0</span></button>
   <button class="ib cart" id="cartBtn" aria-label="Cart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 7h12l-1 13H7L6 7z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg><span class="cnt" id="cartCnt">0</span></button>
  </div>
@@ -262,6 +271,7 @@ footer .cp{grid-column:1/-1;border-top:1px solid #3a2f28;padding-top:16px;font-s
 <div class="toast" id="toast"></div>
 <script src="firebase-config.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
 <script>
 {
@@ -303,7 +313,13 @@ cod:['الدفع عند الاستلام','Cash on delivery'],vc:['فودافو�
 place:['تأكيد الطلب','Place order'],errF:['من فضلك كملي الاسم والعنوان والمحافظة.','Please fill in name, address and governorate.'],errP:['رقم الموبايل لازم يكون 11 رقم ويبدأ بـ 01','Mobile must be 11 digits starting with 01'],
 okT:['تم استلام طلبك!','Order received!'],okP:['رقم الطلب {n}. ابعتي التأكيد على واتساب علشان نجهز طلبك فورًا.','Order {n}. Send the confirmation on WhatsApp so we can prepare it right away.'],sendWa:['ابعتي التأكيد على واتساب','Send confirmation on WhatsApp'],
 waHead:['طلب جديد من موقع فيلورا','New order from Velora website'],
-f1t:['شحن لكل مصر','Nationwide delivery'],f1p:['توصيل خلال 2–5 أيام عمل، ومجاني فوق {x}.','2–5 working days, free over {x}.'],okLive:['رقم الطلب {n}. طلبك اتسجل عندنا وهنكلمك على رقمك للتأكيد قريب.','Order {n}. It is saved and we will call you to confirm shortly.'],waOpt:['تابعي معانا على واتساب','Follow up on WhatsApp'],sending:['جاري الإرسال...','Sending...'],soon:['المنتجات هتنزل قريب.','Products coming soon.'],
+f1t:['شحن لكل مصر','Nationwide delivery'],f1p:['توصيل خلال 2–5 أيام عمل، ومجاني فوق {x}.','2–5 working days, free over {x}.'],okLive:['رقم الطلب {n}. طلبك اتسجل عندنا وهنكلمك على رقمك للتأكيد قريب.','Order {n}. It is saved and we will call you to confirm shortly.'],acc:['حسابي','My account'],login:['تسجيل الدخول','Sign in'],signup:['حساب جديد','Create account'],email:['الإيميل','Email'],pass:['كلمة السر','Password'],pass6:['6 حروف أو أرقام على الأقل','At least 6 characters'],google:['الدخول بحساب جوجل','Continue with Google'],or:['أو','or'],
+noAcc:['معندكيش حساب؟ اعملي حساب جديد','No account? Create one'],haveAcc:['عندك حساب؟ سجلي دخول','Have an account? Sign in'],forgot:['نسيتي كلمة السر؟','Forgot password?'],resetSent:['بعتنالك لينك تغيير كلمة السر على الإيميل','We emailed you a reset link'],needEmail:['اكتبي الإيميل الأول','Enter your email first'],
+hi:['أهلاً','Hi'],myOrders:['طلباتي','My orders'],myInfo:['بياناتي','My details'],logout:['تسجيل خروج','Sign out'],saveInfo:['حفظ البيانات','Save details'],saved:['اتحفظت بياناتك','Details saved'],noOrders:['لسه مفيش طلبات.','No orders yet.'],
+saveToAcc:['احفظي البيانات دي في حسابي','Save these details to my account'],welcome:['أهلاً بيكي في فيلورا!','Welcome to Velora!'],accSoon:['الحسابات بتشتغل على الموقع المرفوع بس','Accounts work on the live site only'],loading:['جاري التحميل...','Loading...'],
+st_new:['جديد','New'],st_confirmed:['مؤكد','Confirmed'],st_shipped:['اتشحن','Shipped'],st_delivered:['اتسلّم','Delivered'],st_cancelled:['ملغي','Cancelled'],
+e_cred:['الإيميل أو كلمة السر غلط','Wrong email or password'],e_used:['الإيميل ده عليه حساب بالفعل','This email already has an account'],e_weak:['كلمة السر ضعيفة، 6 حروف على الأقل','Password too weak (6+ characters)'],e_mail:['الإيميل مش صحيح','Invalid email'],e_gen:['حصلت مشكلة، جربي تاني','Something went wrong, try again'],e_popup:['اتقفلت نافذة جوجل قبل ما تكمل','Google window was closed'],e_dom:['الدخول بجوجل لسه مش متفعل للموقع ده','Google sign-in is not enabled for this site yet'],e_name:['اكتبي اسمك','Enter your name'],
+waOpt:['تابعي معانا على واتساب','Follow up on WhatsApp'],sending:['جاري الإرسال...','Sending...'],soon:['المنتجات هتنزل قريب.','Products coming soon.'],
 f2t:['ادفعي براحتك','Pay your way'],f2p:['كاش عند الاستلام، فودافون كاش أو إنستاباي.','Cash on delivery, Vodafone Cash or InstaPay.'],
 f3t:['استرجاع سهل','Easy returns'],f3p:['استبدال أو استرجاع خلال 14 يوم من الاستلام.','Exchange or return within 14 days.'],
 f4t:['تغليف هدية','Gift wrapping'],f4p:['كل طلب بيوصل متغلف بشكل أنيق وجاهز للإهداء.','Every order arrives elegantly wrapped.']
@@ -409,9 +425,9 @@ function persist(){save('cart',cart);save('fav',fav);save('promo',promo)}
 function addItem(id,s,qn){const e=cart.find(i=>i.id===id&&i.s===s);e?e.q+=qn:cart.push({id,s,q:qn});persist();renderCart();toast(t('added'))}
 let tt;function toast(m){const e=$('#toast');e.textContent=m;e.classList.add('on');clearTimeout(tt);tt=setTimeout(()=>e.classList.remove('on'),1800)}
 function openDrawer(){$('#drawer').classList.add('on');$('#ov').classList.add('on')}
-function closeAll(){$('#drawer').classList.remove('on');$('#modal').classList.remove('on');$('#ov').classList.remove('on')}
+function closeAll(){accOpen=false;$('#drawer').classList.remove('on');$('#modal').classList.remove('on');$('#ov').classList.remove('on')}
 function openModal(h){$('#mBody').innerHTML=`<button class="ib x" data-close aria-label="Close">✕</button>`+h;$('#modal').classList.add('on');$('#ov').classList.add('on')}
-function product(id){cur=byId(id);sel={sz:'M',qty:1};drawProduct()}
+function product(id){accOpen=false;cur=byId(id);sel={sz:'M',qty:1};drawProduct()}
 function drawProduct(){const p=cur;openModal(`<div class="pm"><div class="pa">${pic(p)}</div><div class="pi"><h2>${esc(nm(p))}</h2><div class="pr"><b style="font-size:24px">${money(p.p)}</b>${p.o?`<s>${money(p.o)}</s>`:''}</div><p>${esc(p.d[li()])}</p>
 ${p.sz?`<div><b>${t('size')}</b><div class="opts" style="margin-top:8px">${SZ.map(z=>`<button data-sz="${z}" aria-pressed="${sel.sz===z}">${z}</button>`).join('')}</div></div>`:''}
 <div><b>${t('qty')}</b><div class="qty" style="margin-top:8px"><button data-mq="-1">−</button><span>${sel.qty}</span><button data-mq="1">+</button></div></div>
@@ -424,13 +440,49 @@ function checkout(){closeAll();openModal(`<form class="f" id="coF" novalidate><h
 <label>${t('notes')}<input id="cNotes"></label>
 <div class="pay"><b>${t('payT')}</b>${['cod','vc','ip'].map((v,i)=>`<label><input type="radio" name="pay" value="${v}" ${i?'':'checked'}>${t(v)}</label>`).join('')}</div>
 <div class="df" style="border-radius:14px;border:1px solid var(--ln)" id="coSum"></div>
-<p class="err" id="coErr"></p><button class="btn g" type="submit">${t('place')}</button></form>`);coSum()}
+${user?`<label class="ck" style="display:flex;gap:10px;align-items:center"><input type="checkbox" id="cSave" checked style="width:20px;height:20px">${t('saveToAcc')}</label>`:''}<p class="err" id="coErr"></p><button class="btn g" type="submit">${t('place')}</button></form>`);
+ if(user){$('#cName').value=profile.name||user.displayName||'';$('#cPhone').value=profile.phone||'';if(profile.gi!=null)$('#cGov').value=profile.gi;$('#cAddr').value=profile.addr||''}coSum()}
 function coSum(){const g=$('#cGov')?.value,f=shipFee(g===''?null:+g);$('#coSum').innerHTML=`<div class="row"><span>${t('sub')}</span><b>${money(sum())}</b></div>${promo?`<div class="row"><span>${t('disc')}</span><b>-${money(disc())}</b></div>`:''}<div class="row"><span>${t('ship')}</span><b>${f===null?t('shipCalc'):f?money(f):t('free')}</b></div><div class="row t"><span>${t('total')}</span><span>${money(sum()-disc()+(f||0))}</span></div>`}
 
+let auth=null,user=null,profile={},myOrders=null,loadingMy=false,accMode='login',meTab='orders',accOpen=false;
+const ST_OK=['new','confirmed','shipped','delivered','cancelled'];
+const aerr=e=>t(/invalid-credential|wrong-password|user-not-found|invalid-login/.test(e.code)?'e_cred':/email-already/.test(e.code)?'e_used':/weak-password/.test(e.code)?'e_weak':/invalid-email/.test(e.code)?'e_mail':/popup-closed|cancelled-popup/.test(e.code)?'e_popup':/unauthorized-domain|operation-not-allowed/.test(e.code)?'e_dom':'e_gen');
+const gIcon='<svg width="18" height="18" viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9 3.5l6.7-6.7C35.6 2.4 30.2 0 24 0 14.6 0 6.6 5.4 2.7 13.2l7.8 6C12.4 13.6 17.7 9.5 24 9.5z"/><path fill="#4285F4" d="M46.5 24.5c0-1.6-.1-3.1-.4-4.5H24v9h12.7c-.6 3-2.3 5.5-4.8 7.2l7.5 5.8c4.4-4 7.1-10 7.1-17.5z"/><path fill="#FBBC05" d="M10.5 28.8c-.5-1.5-.8-3.1-.8-4.8s.3-3.3.8-4.8l-7.8-6C1 16.5 0 20.1 0 24s1 7.5 2.7 10.8l7.8-6z"/><path fill="#34A853" d="M24 48c6.5 0 11.9-2.1 15.9-5.8l-7.5-5.8c-2.1 1.4-4.9 2.3-8.4 2.3-6.3 0-11.6-4.1-13.5-9.7l-7.8 6C6.6 42.6 14.6 48 24 48z"/></svg>';
+function openAcc(){if(!auth){toast(t('accSoon'));return}cur=null;accOpen=true;drawAcc()}
+async function loadMy(){if(loadingMy)return;loadingMy=true;try{const q=await fdb.collection('orders').where('uid','==',user.uid).get();myOrders=q.docs.map(d=>d.data()).sort((a,b)=>(b.createdAt?.toMillis?.()||0)-(a.createdAt?.toMillis?.()||0))}catch(err){console.warn(err);myOrders=[]}loadingMy=false;if(accOpen&&user)drawAcc()}
+function meOrders(){if(myOrders===null){loadMy();return`<p>${t('loading')}</p>`}if(!myOrders.length)return`<p style="color:var(--mut)">${t('noOrders')}</p>`;
+ return myOrders.map(o=>{const st=ST_OK.includes(o.status)?o.status:'new';return`<div class="mo"><div class="row"><b dir="ltr">#${esc(o.n)}</b><span class="st st-${st}">${t('st_'+st)}</span></div><small>${o.createdAt?.toDate?esc(o.createdAt.toDate().toLocaleDateString(L==='ar'?'ar-EG':'en-GB')):''} · ${(o.items||[]).map(i=>esc(i.name)+' ×'+(+i.q||0)).join('، ')}</small><div class="row"><span>${t('total')}</span><b>${money(+o.total||0)}</b></div></div>`}).join('')}
+function meInfo(){const g=profile.gi;return`<form id="infoF" novalidate style="display:grid;gap:14px"><label>${t('name')}<input id="iName" value="${esc(profile.name||user.displayName||'')}" autocomplete="name"></label><label>${t('phone')}<input id="iPhone" type="tel" inputmode="numeric" dir="ltr" placeholder="01xxxxxxxxx" value="${esc(profile.phone||'')}"></label>
+<label>${t('gov')}<select id="iGov"><option value="">${t('pick')}</option>${GOV.map((x,i)=>`<option value="${i}" ${g===i?'selected':''}>${x[li()]}</option>`).join('')}</select></label><label>${t('addr')}<textarea id="iAddr">${esc(profile.addr||'')}</textarea></label><p class="err" id="iErr"></p><button class="btn g" type="submit">${t('saveInfo')}</button></form>`}
+function drawAcc(){if(user){openModal(`<div class="f auth"><h2 style="font-size:28px">${t('hi')} ${esc(profile.name||user.displayName||'')}</h2><small dir="ltr" style="color:var(--mut);text-align:start">${esc(user.email||'')}</small>
+<div class="opts"><button data-mt="orders" aria-pressed="${meTab==='orders'}">${t('myOrders')}</button><button data-mt="info" aria-pressed="${meTab==='info'}">${t('myInfo')}</button></div>
+<div>${meTab==='orders'?meOrders():meInfo()}</div><button class="btn o" id="outBtn">${t('logout')}</button></div>`);return}
+ const up=accMode==='signup';openModal(`<form class="f auth" id="authF" novalidate><h2 style="font-size:28px">${t(up?'signup':'login')}</h2>
+<button type="button" class="btn o" id="gBtn">${gIcon}${t('google')}</button><div class="or">${t('or')}</div>
+${up?`<label>${t('name')}<input id="aName" autocomplete="name"></label><label>${t('phone')}<input id="aPhone" type="tel" inputmode="numeric" dir="ltr" placeholder="01xxxxxxxxx" autocomplete="tel"></label>`:''}
+<label>${t('email')}<input id="aEmail" type="email" autocomplete="email" dir="ltr"></label><label>${t('pass')}<input id="aPass" type="password" autocomplete="${up?'new-password':'current-password'}" dir="ltr"></label>
+${up?`<small style="color:var(--mut)">${t('pass6')}</small>`:`<button type="button" class="lnk" id="fgBtn">${t('forgot')}</button>`}
+<p class="err" id="aErr"></p><button class="btn g" type="submit" id="aBtn">${t(up?'signup':'login')}</button><button type="button" class="lnk" id="swBtn">${t(up?'haveAcc':'noAcc')}</button></form>`)}
+async function ensureUserDoc(u,extra){const ref=fdb.collection('users').doc(u.uid);const s=await ref.get();if(!s.exists){const d={name:u.displayName||'',email:u.email||'',phone:'',...extra,createdAt:firebase.firestore.FieldValue.serverTimestamp()};await ref.set(d);profile=d;toast(t('welcome'))}else profile=s.data()}
+document.addEventListener('submit',async e=>{const id=e.target.id;if(id!=='authF'&&id!=='infoF')return;e.preventDefault();
+ if(id==='infoF'){const ph=$('#iPhone').value.replace(/\D/g,'');if(ph&&!/^01[0125]\d{8}$/.test(ph)){$('#iErr').textContent=t('errP');return}const g=$('#iGov').value;
+  const d={name:$('#iName').value.trim().slice(0,80),phone:ph,gi:g===''?null:+g,addr:$('#iAddr').value.trim().slice(0,400)};try{await fdb.collection('users').doc(user.uid).set(d,{merge:true});profile={...profile,...d};toast(t('saved'));drawAcc()}catch(err){$('#iErr').textContent=t('e_gen')}return}
+ const em=$('#aEmail').value.trim(),pw=$('#aPass').value,b=$('#aBtn');$('#aErr').textContent='';
+ try{if(accMode==='signup'){const nm=$('#aName').value.trim(),ph=$('#aPhone').value.replace(/\D/g,'');if(!nm)throw{code:'x-name'};if(ph&&!/^01[0125]\d{8}$/.test(ph))throw{code:'x-phone'};b.disabled=true;
+   const c=await auth.createUserWithEmailAndPassword(em,pw);await c.user.updateProfile({displayName:nm});await ensureUserDoc(c.user,{name:nm.slice(0,80),phone:ph,email:em});drawAcc()}
+  else{b.disabled=true;await auth.signInWithEmailAndPassword(em,pw)}}
+ catch(err){$('#aErr').textContent=err.code==='x-name'?t('e_name'):err.code==='x-phone'?t('errP'):aerr(err);b.disabled=false}});
+document.addEventListener('click',async e=>{const b=e.target.closest('button');if(!b)return;
+ if(b.id==='accBtn'){openAcc();return}
+ if(b.id==='swBtn'){accMode=accMode==='login'?'signup':'login';drawAcc();return}
+ if(b.dataset.mt){meTab=b.dataset.mt;drawAcc();return}
+ if(b.id==='outBtn'){await auth.signOut();closeAll();return}
+ if(b.id==='fgBtn'){const em=$('#aEmail').value.trim();if(!em){$('#aErr').textContent=t('needEmail');return}try{await auth.sendPasswordResetEmail(em);toast(t('resetSent'))}catch(err){$('#aErr').textContent=aerr(err)}return}
+ if(b.id==='gBtn'){$('#aErr').textContent='';try{const r=await auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());await ensureUserDoc(r.user,{});drawAcc()}catch(err){$('#aErr').textContent=aerr(err)}return}});
 function applyLang(){const h=document.documentElement;h.lang=L;h.dir=L==='ar'?'rtl':'ltr';$('#langBtn').textContent=L==='ar'?'English':'عربي';
 document.querySelectorAll('[data-i]').forEach(e=>e.textContent=t(e.dataset.i,e.dataset.x==='free'?money(FREE):e.dataset.x==='pct'?Math.round(OFF*100)+'%':undefined));$('#codeTxt').textContent=CODE;document.querySelectorAll('[data-ph]').forEach(e=>e.placeholder=t(e.dataset.ph));
 document.title=L==='ar'?'فيلورا | Velora':'Velora | فيلورا';$('#waTxt').textContent='+'+WA;$('#waContact').href=`https://wa.me/${WA}`;
-cats();chips();grid();feats();renderCart();if($('#modal').classList.contains('on')&&cur&&$('.pm'))drawProduct()}
+cats();chips();grid();feats();renderCart();if($('#modal').classList.contains('on')&&cur&&$('.pm'))drawProduct();if(accOpen)drawAcc()}
 
 document.addEventListener('click',e=>{const el=e.target.closest('button,a');if(!el)return;const d=el.dataset;
 if(d.close!==undefined){closeAll();return}
@@ -454,8 +506,9 @@ const info={name:$('#cName').value.trim(),phone:$('#cPhone').value.replace(/\D/g
 if(!info.name||!info.addr||info.g===''){$('#coErr').textContent=t('errF');return}if(!/^01[0125]\d{8}$/.test(info.phone)){$('#coErr').textContent=t('errP');return}
 info.g=+info.g;info.n='VL-'+Date.now().toString().slice(-6);const link=waMsg(info);let saved=false;
 if(fdb){const btn=e.target.querySelector('[type=submit]');btn.disabled=true;btn.textContent=t('sending');const f=shipFee(info.g)||0;
- try{await fdb.collection('orders').add({n:info.n,items:cart.map(i=>{const p=byId(i.id);return{id:p.id,name:p.n[0],size:i.s||'',q:i.q,price:p.p}}),subtotal:sum(),discount:disc(),shipping:f,total:sum()-disc()+f,name:info.name.slice(0,80),phone:info.phone,gov:GOV[info.g][0],addr:info.addr.slice(0,400),notes:info.notes.slice(0,400),pay:info.pay,lang:L,status:'new',createdAt:firebase.firestore.FieldValue.serverTimestamp()});saved=true}catch(err){console.warn(err)}}
-if(saved){cart=[];promo=false;persist();renderCart()}
+ try{await fdb.collection('orders').add({n:info.n,items:cart.map(i=>{const p=byId(i.id);return{id:p.id,name:p.n[0],size:i.s||'',q:i.q,price:p.p}}),subtotal:sum(),discount:disc(),shipping:f,total:sum()-disc()+f,name:info.name.slice(0,80),phone:info.phone,gov:GOV[info.g][0],addr:info.addr.slice(0,400),notes:info.notes.slice(0,400),pay:info.pay,lang:L,status:'new',...(user?{uid:user.uid}:{}),createdAt:firebase.firestore.FieldValue.serverTimestamp()});saved=true}catch(err){console.warn(err)}}
+if(saved){cart=[];promo=false;persist();renderCart();myOrders=null}
+if(user&&$('#cSave')?.checked){const d={name:info.name.slice(0,80),phone:info.phone,gi:info.g,addr:info.addr.slice(0,400)};profile={...profile,...d};fdb.collection('users').doc(user.uid).set(d,{merge:true}).catch(()=>{})}
 openModal(`<div class="ok"><div class="ck">✓</div><h2>${t('okT')}</h2><p>${esc(t(saved?'okLive':'okP',info.n))}</p><a class="btn wa" target="_blank" rel="noopener" href="${link}" id="okWa">${t(saved?'waOpt':'sendWa')}</a><button class="btn o" data-close>${t('keep')}</button></div>`);
 if(!saved)$('#okWa').addEventListener('click',()=>{cart=[];promo=false;persist();renderCart()})});
 $('#cartBtn').onclick=openDrawer;$('#fcart').onclick=openDrawer;$('#ov').onclick=closeAll;
@@ -467,6 +520,7 @@ $('#copyCode').onclick=async()=>{try{await navigator.clipboard.writeText(CODE)}c
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeAll()});
 async function boot(){hero();applyLang();if(!live)return;
  try{firebase.initializeApp(window.FIREBASE_CONFIG);fdb=firebase.firestore();
+ if(firebase.auth){auth=firebase.auth();auth.onAuthStateChanged(async u=>{user=u;$('#accDot').hidden=!u;myOrders=null;profile={};if(u){try{const x=await fdb.collection('users').doc(u.uid).get();profile=x.exists?x.data():{name:u.displayName||''}}catch(err){}}if(accOpen)drawAcc()})}
  const [ps,st]=await Promise.all([fdb.collection('products').where('active','==',true).get(),fdb.collection('settings').doc('main').get()]);
  if(st.exists){const x=st.data();if(x.wa)WA=String(x.wa).replace(/\D/g,'');if(+x.free>=0)FREE=+x.free;if(x.code)CODE=String(x.code).toUpperCase();if(+x.pct>=0)OFF=+x.pct/100}
  P=ps.docs.map(d=>fromDoc(d.id,d.data())).sort((a,b)=>a.ord-b.ord);
