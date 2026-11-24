@@ -4,6 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Velora فيلورا</title>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#2b211b">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 40 40%27%3E%3Ccircle cx=%2720%27 cy=%2720%27 r=%2720%27 fill=%27%232b211b%27/%3E%3Ccircle cx=%2720%27 cy=%2720%27 r=%2716%27 fill=%27none%27 stroke=%27%23d6aa5e%27 stroke-width=%271.5%27/%3E%3Cpath d=%27M12 13l8 15 8-15%27 fill=%27none%27 stroke=%27%23f2e8db%27 stroke-width=%273%27 stroke-linejoin=%27round%27/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=El+Messiri:wght@500;700&family=Tajawal:wght@400;500;700&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
@@ -163,6 +167,20 @@ footer .cp{grid-column:1/-1;border-top:1px solid #3a2f28;padding-top:16px;font-s
 [dir=rtl] .toast{transform:translate(50%,120px)}
 .toast.on{transform:translate(-50%,0)}[dir=rtl] .toast.on{transform:translate(50%,0)}
 .fcart{display:none}
+.bdg.so{background:#6e5e52;color:#fff}
+.rt{color:var(--gold);font-size:13px;font-weight:700;white-space:nowrap}
+.add:disabled,.btn:disabled{opacity:.45;cursor:not-allowed}
+.opts button:disabled{text-decoration:line-through;opacity:.45}
+.gal{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;aspect-ratio:1}
+.gal>*{flex:0 0 100%;scroll-snap-align:center;width:100%;height:100%;object-fit:cover}
+.gth{display:flex;gap:8px;padding:10px;overflow-x:auto}
+.gth button{flex:none;width:56px;height:56px;padding:0;border:2px solid var(--ln);border-radius:10px;overflow:hidden;background:none}
+.gth img{width:100%;height:100%;object-fit:cover}
+.share{display:flex;flex-wrap:wrap;gap:8px}
+.rvs{border-top:1px solid var(--ln);padding:20px 28px 28px;display:grid;gap:12px;grid-column:1/-1}
+.rv{border-bottom:1px solid var(--ln);padding-bottom:10px}.rv p{margin:4px 0 0;color:var(--mut)}
+.stars{color:var(--gold);letter-spacing:2px;white-space:nowrap}
+.pick button{font-size:30px;background:none;border:0;color:var(--ln);padding:0 4px;min-width:44px;min-height:44px}.pick button.on{color:var(--gold)}
 .dot{position:absolute;top:3px;inset-inline-end:3px;width:10px;height:10px;border-radius:50%;background:#1f8f55;border:2px solid var(--sf)}
 .auth{max-width:480px;margin:0 auto}
 .lnk{background:none;border:0;color:var(--gold);text-decoration:underline;padding:6px 0;font-weight:600;justify-self:start}
@@ -319,6 +337,11 @@ hi:['أهلاً','Hi'],myOrders:['طلباتي','My orders'],myInfo:['بيانا
 saveToAcc:['احفظي البيانات دي في حسابي','Save these details to my account'],welcome:['أهلاً بيكي في فيلورا!','Welcome to Velora!'],accSoon:['الحسابات بتشتغل على الموقع المرفوع بس','Accounts work on the live site only'],loading:['جاري التحميل...','Loading...'],
 st_new:['جديد','New'],st_confirmed:['مؤكد','Confirmed'],st_shipped:['اتشحن','Shipped'],st_delivered:['اتسلّم','Delivered'],st_cancelled:['ملغي','Cancelled'],
 e_cred:['الإيميل أو كلمة السر غلط','Wrong email or password'],e_used:['الإيميل ده عليه حساب بالفعل','This email already has an account'],e_weak:['كلمة السر ضعيفة، 6 حروف على الأقل','Password too weak (6+ characters)'],e_mail:['الإيميل مش صحيح','Invalid email'],e_gen:['حصلت مشكلة، جربي تاني','Something went wrong, try again'],e_popup:['اتقفلت نافذة جوجل قبل ما تكمل','Google window was closed'],e_dom:['الدخول بجوجل لسه مش متفعل للموقع ده','Google sign-in is not enabled for this site yet'],e_name:['اكتبي اسمك','Enter your name'],
+soldOut:['نفذت الكمية','Sold out'],maxQty:['دي أقصى كمية متاحة','That is the maximum available'],left:['فاضل {x} بس','Only {x} left'],
+share:['شاركي المنتج','Share'],copyLink:['انسخي اللينك','Copy link'],linkCopied:['تم نسخ اللينك','Link copied'],waShare:['ابعتيه واتساب','Send on WhatsApp'],
+reviews:['تقييمات العملاء','Customer reviews'],noReviews:['لسه مفيش تقييمات للمنتج ده.','No reviews yet.'],verified:['اشترت المنتج','Verified buyer'],
+rate:['قيّمي','Review'],rated:['اتقيّم','Reviewed'],rateT:['قيّمي المنتج','Review this product'],yourRev:['رأيك (اختياري)','Your review (optional)'],sendRev:['نشر التقييم','Post review'],revThanks:['شكرًا! اتنشر تقييمك','Thanks! Your review is posted'],pickStars:['اختاري عدد النجوم','Choose a star rating'],
+expCode:['الكود ده انتهت صلاحيته','This code has expired'],minCode:['الكود ده للطلبات فوق {x}','This code needs orders over {x}'],
 waOpt:['تابعي معانا على واتساب','Follow up on WhatsApp'],sending:['جاري الإرسال...','Sending...'],soon:['المنتجات هتنزل قريب.','Products coming soon.'],
 f2t:['ادفعي براحتك','Pay your way'],f2p:['كاش عند الاستلام، فودافون كاش أو إنستاباي.','Cash on delivery, Vodafone Cash or InstaPay.'],
 f3t:['استرجاع سهل','Easy returns'],f3p:['استبدال أو استرجاع خلال 14 يوم من الاستلام.','Exchange or return within 14 days.'],
@@ -348,15 +371,24 @@ let P=[
 ];
 P.forEach(p=>p.id='p'+p.id);
 const KINDS=['necklace','earrings','ring','watch','bag','glasses','dress','shirt','pants','scarf','perfume','cream','serum','lipstick','shampoo'];
-function fromDoc(id,x){return{id,cat:['acc','clo','care'].includes(x.cat)?x.cat:'acc',k:KINDS.includes(x.kind)?x.kind:'perfume',c:/^#[0-9a-f]{6}$/i.test(x.color||'')?x.color:'#c9a24e',p:+x.price||0,o:+x.old||0,b:['new','sale'].includes(x.badge)?x.badge:'',sz:!!x.sizes,n:[x.nameAr||x.nameEn||'',x.nameEn||x.nameAr||''],d:[x.descAr||'',x.descEn||x.descAr||''],img:/^data:image\/(jpeg|png|webp);base64,[A-Za-z0-9+/=]+$/.test(x.img||'')?x.img:'',ord:+x.order||0}}
+function fromDoc(id,x){return{id,cat:['acc','clo','care'].includes(x.cat)?x.cat:'acc',k:KINDS.includes(x.kind)?x.kind:'perfume',c:/^#[0-9a-f]{6}$/i.test(x.color||'')?x.color:'#c9a24e',p:+x.price||0,o:+x.old||0,b:['new','sale'].includes(x.badge)?x.badge:'',sz:!!x.sizes,n:[x.nameAr||x.nameEn||'',x.nameEn||x.nameAr||''],d:[x.descAr||'',x.descEn||x.descAr||''],imgs:(Array.isArray(x.imgs)&&x.imgs.length?x.imgs:[x.img]).filter(v=>/^data:image\/(jpeg|png|webp);base64,[A-Za-z0-9+/=]+$/.test(v||'')).slice(0,4),st:x.stock===''||x.stock==null?null:Math.max(0,+x.stock||0),ss:x.stockSz&&typeof x.stockSz==='object'?x.stockSz:{},ord:+x.order||0}}
+function normP(p){p.imgs=p.imgs||[];p.img=p.imgs[0]||'';return p}
 const GOV=[['القاهرة','Cairo',60],['الجيزة','Giza',60],['القليوبية','Qalyubia',65],['الإسكندرية','Alexandria',70],['الدقهلية','Dakahlia',75],['الغربية','Gharbia',75],['كفر الشيخ','Kafr El-Sheikh',75],['المنوفية','Monufia',75],['الشرقية','Sharqia',75],['البحيرة','Beheira',75],['دمياط','Damietta',75],['بورسعيد','Port Said',75],['الإسماعيلية','Ismailia',75],['السويس','Suez',75],['الفيوم','Faiyum',85],['بني سويف','Beni Suef',85],['المنيا','Minya',90],['أسيوط','Asyut',90],['سوهاج','Sohag',90],['قنا','Qena',95],['الأقصر','Luxor',95],['أسوان','Aswan',95],['البحر الأحمر','Red Sea',100],['مطروح','Matrouh',100]];
 
 const $=s=>document.querySelector(s);
 const esc=s=>String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
 const load=(k,d)=>{try{return JSON.parse(localStorage.getItem('vel_'+k))??d}catch(e){return d}};
 const save=(k,v)=>{try{localStorage.setItem('vel_'+k,JSON.stringify(v))}catch(e){}};
-let L=load('lang','ar'),cart=load('cart',[]).filter(i=>typeof i.id==='string'),fav=load('fav',[]).filter(x=>typeof x==='string'),promo=load('promo',false),cat='all',q='',sort='feat',cur=null,sel={sz:'M',qty:1};
+let L=load('lang','ar'),cart=load('cart',[]).filter(i=>typeof i.id==='string'),fav=load('fav',[]).filter(x=>typeof x==='string'),promo=load('promo',null),cat='all',q='',sort='feat',cur=null,sel={sz:'M',qty:1};
+if(!promo||typeof promo!=='object')promo=null;
+let RV={};
 const li=()=>L==='ar'?0:1;
+const avail=(p,z)=>{const v=p.sz?p.ss?.[z]:p.st;return v==null||v===''?Infinity:Math.max(0,+v||0)};
+const soldOut=p=>p.sz?SZ.every(z=>avail(p,z)<=0):avail(p)<=0;
+const inCart=(id,z)=>cart.filter(i=>i.id===id&&(i.s||null)===(z||null)).reduce((a,i)=>a+i.q,0);
+const avg=id=>{const r=RV[id]||[];return r.length?(r.reduce((a,x)=>a+x.stars,0)/r.length):0};
+const starTxt=n=>'★★★★★'.slice(0,Math.round(n))+'☆☆☆☆☆'.slice(0,5-Math.round(n));
+const plink=id=>location.origin+location.pathname+'#p-'+encodeURIComponent(id);
 const t=(k,x)=>(T[k]?T[k][li()]:k).replace('{x}',x??'').replace('{n}',x??'');
 const money=n=>L==='ar'?Math.round(n).toLocaleString('en-US')+' ج.م':'EGP '+Math.round(n).toLocaleString('en-US');
 const nm=p=>p.n[li()];
@@ -382,7 +414,7 @@ case'serum':return`<ellipse cx="100" cy="34" rx="12" ry="14" fill="#2b211b"/><re
 case'lipstick':return`<path d="M86 34l28 18v36H86z" fill="${c}"/><path d="M86 34l10 6v48H86z" fill="#fff" opacity=".3"/><rect x="80" y="86" width="40" height="34" rx="2" fill="${G}"/><rect x="80" y="86" width="12" height="34" fill="#fff" opacity=".3"/><rect x="76" y="118" width="48" height="58" rx="4" fill="#2b211b"/><rect x="76" y="118" width="14" height="58" fill="#fff" opacity=".12"/>${g}`;
 case'shampoo':return`<rect x="96" y="22" width="34" height="8" rx="3" fill="${d}"/><rect x="94" y="22" width="8" height="26" fill="${d}"/><rect x="86" y="46" width="28" height="18" rx="3" fill="${d}"/><path d="M68 64h64q6 0 6 8v98q0 6-6 6H68q-6 0-6-6V72q0-8 6-8z" fill="${c}"/><path d="M68 64h18v112H68q-6 0-6-6V72q0-8 6-8z" fill="#fff" opacity=".25"/><rect x="76" y="100" width="48" height="50" rx="5" fill="#fbf6ee" opacity=".92"/><path d="M90 120q10-12 20 0q-10 12-20 0z" fill="${c}"/>${g}`;
 }return''}
-const pic=p=>p.img?`<img src="${p.img}" alt="" loading="lazy">`:art(p.k,p.c);
+const pic=p=>p.imgs&&p.imgs[0]?`<img src="${p.imgs[0]}" alt="" loading="lazy">`:p.img?`<img src="${p.img}" alt="" loading="lazy">`:art(p.k,p.c);
 const art=(k,c,bg)=>`<svg viewBox="0 0 200 200" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="200" height="200" fill="${bg||sh(c,.82)}"/><circle cx="100" cy="110" r="78" fill="#fff" opacity=".35"/>${inner(k,c)}</svg>`;
 
 function hero(){$('#stage').innerHTML=`<svg viewBox="0 0 460 400" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
@@ -401,14 +433,14 @@ function grid(){let r=P.filter(p=>(cat==='all'||p.cat===cat||(cat==='fav'&&fav.i
 if(sort==='low')r.sort((a,b)=>a.p-b.p);if(sort==='high')r.sort((a,b)=>b.p-a.p);if(sort==='new')r.sort((a,b)=>(b.b==='new')-(a.b==='new')||b.id-a.id);
 $('#resCount').textContent=r.length+' '+t('items');
 const cn={acc:'cAcc',clo:'cClo',care:'cCare'};
-$('#grid').innerHTML=r.length?r.map(p=>`<article class="pc"><button class="pa" data-open="${p.id}" aria-label="${esc(nm(p))}">${pic(p)}</button>${p.b?`<span class="bdg ${p.b==='sale'?'s':''}">${p.b==='sale'&&p.o>p.p?'-'+Math.round((1-p.p/p.o)*100)+'%':p.b==='sale'?(L==='ar'?'عرض':'Sale'):(L==='ar'?'جديد':'New')}</span>`:''}<button class="fav" data-fav="${p.id}" aria-pressed="${fav.includes(p.id)}" aria-label="${t('favs')}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></button><div class="pb"><small>${t(cn[p.cat])}</small><h3>${esc(nm(p))}</h3><div class="pr"><b>${money(p.p)}</b>${p.o?`<s>${money(p.o)}</s>`:''}</div><button class="add" data-add="${p.id}">${p.sz?t('choose'):t('add')}</button></div></article>`).join(''):`<div class="empty">${P.length?t('none'):t('soon')}</div>`}
+$('#grid').innerHTML=r.length?r.map(p=>`<article class="pc"><button class="pa" data-open="${esc(p.id)}" aria-label="${esc(nm(p))}">${pic(p)}</button>${soldOut(p)?`<span class="bdg so">${t('soldOut')}</span>`:p.b?`<span class="bdg ${p.b==='sale'?'s':''}">${p.b==='sale'&&p.o>p.p?'-'+Math.round((1-p.p/p.o)*100)+'%':p.b==='sale'?(L==='ar'?'عرض':'Sale'):(L==='ar'?'جديد':'New')}</span>`:''}<button class="fav" data-fav="${esc(p.id)}" aria-pressed="${fav.includes(p.id)}" aria-label="${t('favs')}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></button><div class="pb"><small>${t(cn[p.cat])}${RV[p.id]?.length?` · <span class="rt">★ ${avg(p.id).toFixed(1)} (${RV[p.id].length})</span>`:''}</small><h3>${esc(nm(p))}</h3><div class="pr"><b>${money(p.p)}</b>${p.o?`<s>${money(p.o)}</s>`:''}</div><button class="add" data-add="${esc(p.id)}" ${soldOut(p)?'disabled':''}>${soldOut(p)?t('soldOut'):p.sz?t('choose'):t('add')}</button></div></article>`).join(''):`<div class="empty">${P.length?t('none'):t('soon')}</div>`}
 function feats(){const ic=['<path d="M3 7h11v9H3zM14 10h4l3 3v3h-7"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/>','<rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18M7 15h3"/>','<path d="M4 12a8 8 0 1 0 3-6.2M4 4v4h4"/>','<rect x="4" y="9" width="16" height="11" rx="1"/><path d="M12 9v11M4 13h16M12 9c-2-4-6-4-6-1s6 1 6 1 6 2 6-1-4-3-6 1"/>'];
 $('#feats').innerHTML=[1,2,3,4].map(i=>`<div class="feat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round">${ic[i-1]}</svg><h3>${t('f'+i+'t')}</h3><p>${t('f'+i+'p',money(FREE))}</p></div>`).join('');$('#feats').id='feats'}
 
 const sum=()=>cart.reduce((s,i)=>s+byId(i.id).p*i.q,0);
-const disc=()=>promo?Math.round(sum()*OFF):0;
+const disc=()=>promo&&sum()>=(promo.min||0)?Math.round(sum()*promo.pct/100):0;
 function shipFee(g){return sum()>=FREE?0:(g!=null&&GOV[g]?GOV[g][2]:null)}
-function waMsg(info){const lines=[t('waHead'),''];cart.forEach(i=>{const p=byId(i.id);lines.push(`• ${nm(p)}${i.s?' ('+i.s+')':''} × ${i.q} = ${money(p.p*i.q)}`)});lines.push('',`${t('sub')}: ${money(sum())}`);if(promo)lines.push(`${t('disc')} (${CODE}): -${money(disc())}`);
+function waMsg(info){const lines=[t('waHead'),''];cart.forEach(i=>{const p=byId(i.id);lines.push(`• ${nm(p)}${i.s?' ('+i.s+')':''} × ${i.q} = ${money(p.p*i.q)}`)});lines.push('',`${t('sub')}: ${money(sum())}`);if(disc())lines.push(`${t('disc')} (${promo.code}): -${money(disc())}`);
 if(info){const f=shipFee(info.g);lines.push(`${t('ship')}: ${f?money(f):t('free')}`,`${t('total')}: ${money(sum()-disc()+f)}`,'',`#${info.n}`,`${t('name')}: ${info.name}`,`${t('phone')}: ${info.phone}`,`${t('gov')}: ${GOV[info.g][li()]}`,`${t('addr')}: ${info.addr}`,`${t('payT')}: ${t(info.pay)}`);if(info.notes)lines.push(`${t('notes')}: ${info.notes}`)}else lines.push(`${t('total')}: ${money(sum()-disc())} + ${t('ship')}`);
 return`https://wa.me/${WA}?text=${encodeURIComponent(lines.join('\n'))}`}
 function renderCart(){const n=cart.reduce((s,i)=>s+i.q,0);$('#cartCnt').textContent=n;$('#favCnt').textContent=fav.length;$('#fTotal').textContent=n?`${n} · ${money(sum()-disc())}`:'0';
@@ -416,22 +448,33 @@ if(!cart.length){$('#dBody').innerHTML=`<div class="empty"><p>${t('empty')}</p><
 $('#dBody').innerHTML=cart.map((i,x)=>{const p=byId(i.id);return`<div class="ci">${pic(p)}<div><h4>${esc(nm(p))}</h4><small>${i.s?t('size')+': '+i.s+' · ':''}${money(p.p)}</small><div class="qty"><button data-dec="${x}" aria-label="-">−</button><span>${i.q}</span><button data-inc="${x}" aria-label="+">+</button></div></div><div style="text-align:end"><b style="white-space:nowrap">${money(p.p*i.q)}</b><br><button class="rm" data-rm="${x}">${t('remove')}</button></div></div>`}).join('');
 const s=sum(),left=FREE-s;
 $('#dFoot').innerHTML=`<div><small>${left>0?t('toFree',money(left)):t('gotFree')}</small><div class="bar"><i style="width:${Math.min(100,s/FREE*100)}%"></i></div></div>
-<div class="cpn"><input id="cpIn" placeholder="${t('coupon')}" value="${promo?CODE:''}" aria-label="${t('coupon')}"><button id="cpBtn">${t('apply')}</button></div><small id="cpMsg" style="color:var(--gold)">${promo?t('okCode'):''}</small>
-<div class="row"><span>${t('sub')}</span><b>${money(s)}</b></div>${promo?`<div class="row"><span>${t('disc')}</span><b>-${money(disc())}</b></div>`:''}<div class="row"><span>${t('ship')}</span><span>${s>=FREE?t('free'):t('shipCalc')}</span></div>
+<div class="cpn"><input id="cpIn" placeholder="${t('coupon')}" value="${promo?esc(promo.code):''}" aria-label="${t('coupon')}"><button id="cpBtn">${t('apply')}</button></div><small id="cpMsg" style="color:var(--gold)">${promo?(disc()?t('okCode'):t('minCode',money(promo.min))):''}</small>
+<div class="row"><span>${t('sub')}</span><b>${money(s)}</b></div>${disc()?`<div class="row"><span>${t('disc')}</span><b>-${money(disc())}</b></div>`:''}<div class="row"><span>${t('ship')}</span><span>${s>=FREE?t('free'):t('shipCalc')}</span></div>
 <div class="row t"><span>${t('total')}</span><span>${money(s-disc())}</span></div>
 <a class="btn wa" target="_blank" rel="noopener" href="${waMsg()}">${t('orderWa')}</a><button class="btn" id="coBtn">${t('checkout')}</button>`}
 
+async function applyCode(raw){const code=String(raw||'').trim().toUpperCase();let res=null,msg='badCode',x;
+ if(!code){promo=null;persist();renderCart();return}
+ if(code===CODE)res={code,pct:Math.round(OFF*100),min:0};
+ else if(fdb&&/^[A-Z0-9_-]{3,20}$/.test(code)){try{const d=await fdb.collection('coupons').doc(code).get();if(d.exists){const c=d.data();const today=new Date().toISOString().slice(0,10);
+  if(c.active===false)msg='badCode';else if(c.expires&&c.expires<today)msg='expCode';else res={code,pct:Math.min(90,Math.max(0,+c.pct||0)),min:Math.max(0,+c.min||0)}}}catch(err){console.warn(err)}}
+ promo=res;persist();renderCart();if(!res)$('#cpMsg').textContent=t(msg);else if(!disc())$('#cpMsg').textContent=t('minCode',money(res.min))}
 function persist(){save('cart',cart);save('fav',fav);save('promo',promo)}
-function addItem(id,s,qn){const e=cart.find(i=>i.id===id&&i.s===s);e?e.q+=qn:cart.push({id,s,q:qn});persist();renderCart();toast(t('added'))}
+function addItem(id,s,qn){const p=byId(id),room=avail(p,s)-inCart(id,s);if(room<=0){toast(t('maxQty'));return}if(qn>room){qn=room;toast(t('maxQty'))}const e=cart.find(i=>i.id===id&&i.s===s);e?e.q+=qn:cart.push({id,s,q:qn});persist();renderCart();toast(t('added'))}
 let tt;function toast(m){const e=$('#toast');e.textContent=m;e.classList.add('on');clearTimeout(tt);tt=setTimeout(()=>e.classList.remove('on'),1800)}
 function openDrawer(){$('#drawer').classList.add('on');$('#ov').classList.add('on')}
-function closeAll(){accOpen=false;$('#drawer').classList.remove('on');$('#modal').classList.remove('on');$('#ov').classList.remove('on')}
+function closeAll(){accOpen=false;if(/^#p-/.test(location.hash)){try{history.replaceState(null,'',location.pathname+location.search)}catch(err){}}cur=null;$('#drawer').classList.remove('on');$('#modal').classList.remove('on');$('#ov').classList.remove('on')}
 function openModal(h){$('#mBody').innerHTML=`<button class="ib x" data-close aria-label="Close">✕</button>`+h;$('#modal').classList.add('on');$('#ov').classList.add('on')}
-function product(id){accOpen=false;cur=byId(id);sel={sz:'M',qty:1};drawProduct()}
-function drawProduct(){const p=cur;openModal(`<div class="pm"><div class="pa">${pic(p)}</div><div class="pi"><h2>${esc(nm(p))}</h2><div class="pr"><b style="font-size:24px">${money(p.p)}</b>${p.o?`<s>${money(p.o)}</s>`:''}</div><p>${esc(p.d[li()])}</p>
-${p.sz?`<div><b>${t('size')}</b><div class="opts" style="margin-top:8px">${SZ.map(z=>`<button data-sz="${z}" aria-pressed="${sel.sz===z}">${z}</button>`).join('')}</div></div>`:''}
+function product(id){const p=byId(id);if(!p)return;accOpen=false;cur=p;sel={sz:p.sz?(SZ.find(z=>avail(p,z)>0)||'M'):'M',qty:1};try{history.replaceState(null,'','#p-'+encodeURIComponent(id))}catch(err){}drawProduct()}
+function fromHash(){const m=location.hash.match(/^#p-(.+)$/);if(m){const id=decodeURIComponent(m[1]);if(byId(id)&&cur?.id!==id)product(id)}}
+window.addEventListener('hashchange',fromHash);
+function drawProduct(){const p=cur,z=p.sz?sel.sz:null,av=avail(p,z),out=av<=0,ims=p.imgs||[],rv=RV[p.id]||[];openModal(`<div class="pm"><div>${ims.length>1?`<div class="gal" id="gal">${ims.map(v=>`<img src="${v}" alt="">`).join('')}</div><div class="gth">${ims.map((v,i)=>`<button data-gi="${i}" aria-label="${i+1}"><img src="${v}" alt=""></button>`).join('')}</div>`:`<div class="pa">${pic(p)}</div>`}</div><div class="pi"><h2>${esc(nm(p))}</h2><div class="pr"><b style="font-size:24px">${money(p.p)}</b>${p.o?`<s>${money(p.o)}</s>`:''}</div><p>${esc(p.d[li()])}</p>
+${rv.length?`<a href="#rvs" class="rt" style="text-decoration:none">${starTxt(avg(p.id))} ${avg(p.id).toFixed(1)} · ${rv.length} ${t('reviews')}</a>`:''}
+${p.sz?`<div><b>${t('size')}</b><div class="opts" style="margin-top:8px">${SZ.map(x=>`<button data-sz="${x}" aria-pressed="${sel.sz===x}" ${avail(p,x)<=0?'disabled':''}>${x}</button>`).join('')}</div></div>`:''}
+${out?`<b style="color:#a8424f">${t('soldOut')}</b>`:av<=5?`<b style="color:var(--gold)">${t('left',av)}</b>`:''}
 <div><b>${t('qty')}</b><div class="qty" style="margin-top:8px"><button data-mq="-1">−</button><span>${sel.qty}</span><button data-mq="1">+</button></div></div>
-<button class="btn g" data-madd>${t('add')} · ${money(p.p*sel.qty)}</button><div class="trust" style="margin-top:4px"><span>${t('tr2')}</span><span>${t('tr3')}</span></div></div></div>`)}
+<button class="btn g" data-madd ${out?'disabled':''}>${out?t('soldOut'):t('add')+' · '+money(p.p*sel.qty)}</button><div class="share"><button class="btn o" style="min-height:40px;font-size:14px" id="cpLink">${t('copyLink')}</button><a class="btn wa" style="min-height:40px;font-size:14px" target="_blank" rel="noopener" href="https://wa.me/?text=${encodeURIComponent(nm(p)+' - '+plink(p.id))}">${t('waShare')}</a></div><div class="trust" style="margin-top:4px"><span>${t('tr2')}</span><span>${t('tr3')}</span></div></div>
+<div class="rvs" id="rvs"><h3 style="font-size:22px">${t('reviews')}</h3>${rv.length?rv.map(r=>`<div class="rv"><span class="stars">${starTxt(r.stars)}</span> <b>${esc(r.name||'')}</b> <small style="color:#2f8a57">✓ ${t('verified')}</small>${r.text?`<p>${esc(r.text)}</p>`:''}</div>`).join(''):`<p style="color:var(--mut);margin:0">${t('noReviews')}</p>`}</div></div>`)}
 function checkout(){closeAll();openModal(`<form class="f" id="coF" novalidate><h2 style="font-size:28px">${t('coT')}</h2>
 <label>${t('name')}<input id="cName" autocomplete="name"></label>
 <div class="two"><label>${t('phone')}<input id="cPhone" type="tel" inputmode="numeric" autocomplete="tel" placeholder="01xxxxxxxxx" dir="ltr"></label>
@@ -442,16 +485,22 @@ function checkout(){closeAll();openModal(`<form class="f" id="coF" novalidate><h
 <div class="df" style="border-radius:14px;border:1px solid var(--ln)" id="coSum"></div>
 ${user?`<label class="ck" style="display:flex;gap:10px;align-items:center"><input type="checkbox" id="cSave" checked style="width:20px;height:20px">${t('saveToAcc')}</label>`:''}<p class="err" id="coErr"></p><button class="btn g" type="submit">${t('place')}</button></form>`);
  if(user){$('#cName').value=profile.name||user.displayName||'';$('#cPhone').value=profile.phone||'';if(profile.gi!=null)$('#cGov').value=profile.gi;$('#cAddr').value=profile.addr||''}coSum()}
-function coSum(){const g=$('#cGov')?.value,f=shipFee(g===''?null:+g);$('#coSum').innerHTML=`<div class="row"><span>${t('sub')}</span><b>${money(sum())}</b></div>${promo?`<div class="row"><span>${t('disc')}</span><b>-${money(disc())}</b></div>`:''}<div class="row"><span>${t('ship')}</span><b>${f===null?t('shipCalc'):f?money(f):t('free')}</b></div><div class="row t"><span>${t('total')}</span><span>${money(sum()-disc()+(f||0))}</span></div>`}
+function coSum(){const g=$('#cGov')?.value,f=shipFee(g===''?null:+g);$('#coSum').innerHTML=`<div class="row"><span>${t('sub')}</span><b>${money(sum())}</b></div>${disc()?`<div class="row"><span>${t('disc')}</span><b>-${money(disc())}</b></div>`:''}<div class="row"><span>${t('ship')}</span><b>${f===null?t('shipCalc'):f?money(f):t('free')}</b></div><div class="row t"><span>${t('total')}</span><span>${money(sum()-disc()+(f||0))}</span></div>`}
 
 let auth=null,user=null,profile={},myOrders=null,loadingMy=false,accMode='login',meTab='orders',accOpen=false;
 const ST_OK=['new','confirmed','shipped','delivered','cancelled'];
 const aerr=e=>t(/invalid-credential|wrong-password|user-not-found|invalid-login/.test(e.code)?'e_cred':/email-already/.test(e.code)?'e_used':/weak-password/.test(e.code)?'e_weak':/invalid-email/.test(e.code)?'e_mail':/popup-closed|cancelled-popup/.test(e.code)?'e_popup':/unauthorized-domain|operation-not-allowed/.test(e.code)?'e_dom':'e_gen');
 const gIcon='<svg width="18" height="18" viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9 3.5l6.7-6.7C35.6 2.4 30.2 0 24 0 14.6 0 6.6 5.4 2.7 13.2l7.8 6C12.4 13.6 17.7 9.5 24 9.5z"/><path fill="#4285F4" d="M46.5 24.5c0-1.6-.1-3.1-.4-4.5H24v9h12.7c-.6 3-2.3 5.5-4.8 7.2l7.5 5.8c4.4-4 7.1-10 7.1-17.5z"/><path fill="#FBBC05" d="M10.5 28.8c-.5-1.5-.8-3.1-.8-4.8s.3-3.3.8-4.8l-7.8-6C1 16.5 0 20.1 0 24s1 7.5 2.7 10.8l7.8-6z"/><path fill="#34A853" d="M24 48c6.5 0 11.9-2.1 15.9-5.8l-7.5-5.8c-2.1 1.4-4.9 2.3-8.4 2.3-6.3 0-11.6-4.1-13.5-9.7l-7.8 6C6.6 42.6 14.6 48 24 48z"/></svg>';
 function openAcc(){if(!auth){toast(t('accSoon'));return}cur=null;accOpen=true;drawAcc()}
-async function loadMy(){if(loadingMy)return;loadingMy=true;try{const q=await fdb.collection('orders').where('uid','==',user.uid).get();myOrders=q.docs.map(d=>d.data()).sort((a,b)=>(b.createdAt?.toMillis?.()||0)-(a.createdAt?.toMillis?.()||0))}catch(err){console.warn(err);myOrders=[]}loadingMy=false;if(accOpen&&user)drawAcc()}
+async function loadMy(){if(loadingMy)return;loadingMy=true;try{const q=await fdb.collection('orders').where('uid','==',user.uid).get();myOrders=q.docs.map(d=>({id:d.id,...d.data()})).sort((a,b)=>(b.createdAt?.toMillis?.()||0)-(a.createdAt?.toMillis?.()||0))}catch(err){console.warn(err);myOrders=[]}loadingMy=false;if(accOpen&&user)drawAcc()}
 function meOrders(){if(myOrders===null){loadMy();return`<p>${t('loading')}</p>`}if(!myOrders.length)return`<p style="color:var(--mut)">${t('noOrders')}</p>`;
- return myOrders.map(o=>{const st=ST_OK.includes(o.status)?o.status:'new';return`<div class="mo"><div class="row"><b dir="ltr">#${esc(o.n)}</b><span class="st st-${st}">${t('st_'+st)}</span></div><small>${o.createdAt?.toDate?esc(o.createdAt.toDate().toLocaleDateString(L==='ar'?'ar-EG':'en-GB')):''} · ${(o.items||[]).map(i=>esc(i.name)+' ×'+(+i.q||0)).join('، ')}</small><div class="row"><span>${t('total')}</span><b>${money(+o.total||0)}</b></div></div>`}).join('')}
+ return myOrders.map(o=>{const st=ST_OK.includes(o.status)?o.status:'new';return`<div class="mo"><div class="row"><b dir="ltr">#${esc(o.n)}</b><span class="st st-${st}">${t('st_'+st)}</span></div><small>${o.createdAt?.toDate?esc(o.createdAt.toDate().toLocaleDateString(L==='ar'?'ar-EG':'en-GB')):''} · ${(o.items||[]).map(i=>esc(i.name)+' ×'+(+i.q||0)).join('، ')}</small><div class="row"><span>${t('total')}</span><b>${money(+o.total||0)}</b></div>${st==='delivered'&&Array.isArray(o.pids)?`<div class="share">${o.pids.filter(id=>byId(id)).map(id=>{const done=(RV[id]||[]).some(r=>r.oid===o.id);return`<button class="btn ${done?'o':'g'}" style="min-height:38px;font-size:14px" ${done?'disabled':`data-rv="${esc(o.id)}|${esc(id)}"`}>${done?'✓ '+t('rated'):t('rate')}: ${esc(nm(byId(id)))}</button>`}).join('')}</div>`:''}</div>`}).join('')}
+let rvSel={oid:'',pid:'',stars:0};
+function drawRev(){const p=byId(rvSel.pid);openModal(`<form class="f auth" id="rvF" novalidate><h2 style="font-size:26px">${t('rateT')}</h2><p style="margin:0">${esc(nm(p))}</p><div class="pick" role="radiogroup">${[1,2,3,4,5].map(n=>`<button type="button" data-star="${n}" class="${n<=rvSel.stars?'on':''}" aria-label="${n}">★</button>`).join('')}</div><label>${t('yourRev')}<textarea id="rvT" maxlength="500"></textarea></label><p class="err" id="rvE"></p><button class="btn g" type="submit">${t('sendRev')}</button></form>`)}
+document.addEventListener('submit',async e=>{if(e.target.id!=='rvF')return;e.preventDefault();if(!rvSel.stars){$('#rvE').textContent=t('pickStars');return}
+ const d={pid:rvSel.pid,oid:rvSel.oid,uid:user.uid,name:(profile.name||user.displayName||'').split(' ')[0].slice(0,40),stars:rvSel.stars,text:$('#rvT').value.trim().slice(0,500),createdAt:firebase.firestore.FieldValue.serverTimestamp()};
+ try{await fdb.collection('reviews').doc(rvSel.oid+'_'+rvSel.pid).set(d);(RV[d.pid]=RV[d.pid]||[]).unshift({...d});toast(t('revThanks'));grid();accOpen=true;meTab='orders';drawAcc()}catch(err){console.warn(err);$('#rvE').textContent=t('e_gen')}});
+document.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;if(b.dataset.rv){const[oid,pid]=b.dataset.rv.split('|');rvSel={oid,pid,stars:0};accOpen=false;drawRev()}else if(b.dataset.star){rvSel.stars=+b.dataset.star;document.querySelectorAll('[data-star]').forEach(x=>x.classList.toggle('on',+x.dataset.star<=rvSel.stars))}});
 function meInfo(){const g=profile.gi;return`<form id="infoF" novalidate style="display:grid;gap:14px"><label>${t('name')}<input id="iName" value="${esc(profile.name||user.displayName||'')}" autocomplete="name"></label><label>${t('phone')}<input id="iPhone" type="tel" inputmode="numeric" dir="ltr" placeholder="01xxxxxxxxx" value="${esc(profile.phone||'')}"></label>
 <label>${t('gov')}<select id="iGov"><option value="">${t('pick')}</option>${GOV.map((x,i)=>`<option value="${i}" ${g===i?'selected':''}>${x[li()]}</option>`).join('')}</select></label><label>${t('addr')}<textarea id="iAddr">${esc(profile.addr||'')}</textarea></label><p class="err" id="iErr"></p><button class="btn g" type="submit">${t('saveInfo')}</button></form>`}
 function drawAcc(){if(user){openModal(`<div class="f auth"><h2 style="font-size:28px">${t('hi')} ${esc(profile.name||user.displayName||'')}</h2><small dir="ltr" style="color:var(--mut);text-align:start">${esc(user.email||'')}</small>
@@ -492,12 +541,14 @@ if(d.open){product(d.open);return}
 if(d.add){const p=byId(d.add);p.sz?product(p.id):addItem(p.id,null,1);return}
 if(d.fav){const id=d.fav;fav=fav.includes(id)?fav.filter(x=>x!==id):[...fav,id];persist();chips();grid();renderCart();return}
 if(d.sz){sel.sz=d.sz;drawProduct();return}
-if(d.mq){sel.qty=Math.max(1,sel.qty+ +d.mq);drawProduct();return}
+if(d.mq){sel.qty=Math.max(1,Math.min(sel.qty+ +d.mq,Math.max(1,avail(cur,cur.sz?sel.sz:null)-inCart(cur.id,cur.sz?sel.sz:null))));drawProduct();return}
+if(d.gi){const g=$('#gal');g&&g.children[+d.gi]?.scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});return}
+if(el.id==='cpLink'){try{navigator.clipboard.writeText(plink(cur.id)).then(()=>toast(t('linkCopied')),()=>toast(plink(cur.id)))}catch(err){toast(plink(cur.id))}return}
 if(d.madd!==undefined){addItem(cur.id,cur.sz?sel.sz:null,sel.qty);closeAll();openDrawer();return}
-if(d.inc){cart[+d.inc].q++;persist();renderCart();return}
+if(d.inc){const it=cart[+d.inc];if(inCart(it.id,it.s)>=avail(byId(it.id),it.s)){toast(t('maxQty'));return}it.q++;persist();renderCart();return}
 if(d.dec){const i=cart[+d.dec];i.q>1?i.q--:cart.splice(+d.dec,1);persist();renderCart();return}
 if(d.rm){cart.splice(+d.rm,1);persist();renderCart();return}
-if(el.id==='cpBtn'){const ok=$('#cpIn').value.trim().toUpperCase()===CODE;promo=ok;persist();renderCart();$('#cpMsg').textContent=ok?t('okCode'):t('badCode');return}
+if(el.id==='cpBtn'){applyCode($('#cpIn').value);return}
 if(el.id==='coBtn'){checkout();return}
 if(el.closest('#mnav')&&el.tagName==='A')$('#mnav').classList.remove('open')});
 document.addEventListener('change',e=>{if(e.target.id==='cGov')coSum()});
@@ -506,11 +557,11 @@ const info={name:$('#cName').value.trim(),phone:$('#cPhone').value.replace(/\D/g
 if(!info.name||!info.addr||info.g===''){$('#coErr').textContent=t('errF');return}if(!/^01[0125]\d{8}$/.test(info.phone)){$('#coErr').textContent=t('errP');return}
 info.g=+info.g;info.n='VL-'+Date.now().toString().slice(-6);const link=waMsg(info);let saved=false;
 if(fdb){const btn=e.target.querySelector('[type=submit]');btn.disabled=true;btn.textContent=t('sending');const f=shipFee(info.g)||0;
- try{await fdb.collection('orders').add({n:info.n,items:cart.map(i=>{const p=byId(i.id);return{id:p.id,name:p.n[0],size:i.s||'',q:i.q,price:p.p}}),subtotal:sum(),discount:disc(),shipping:f,total:sum()-disc()+f,name:info.name.slice(0,80),phone:info.phone,gov:GOV[info.g][0],addr:info.addr.slice(0,400),notes:info.notes.slice(0,400),pay:info.pay,lang:L,status:'new',...(user?{uid:user.uid}:{}),createdAt:firebase.firestore.FieldValue.serverTimestamp()});saved=true}catch(err){console.warn(err)}}
-if(saved){cart=[];promo=false;persist();renderCart();myOrders=null}
+ try{await fdb.collection('orders').add({n:info.n,items:cart.map(i=>{const p=byId(i.id);return{id:p.id,name:p.n[0],size:i.s||'',q:i.q,price:p.p}}),subtotal:sum(),discount:disc(),shipping:f,total:sum()-disc()+f,name:info.name.slice(0,80),phone:info.phone,gov:GOV[info.g][0],addr:info.addr.slice(0,400),notes:info.notes.slice(0,400),pay:info.pay,lang:L,status:'new',pids:[...new Set(cart.map(i=>i.id))],coupon:disc()?promo.code:'',...(user?{uid:user.uid}:{}),createdAt:firebase.firestore.FieldValue.serverTimestamp()});saved=true}catch(err){console.warn(err)}}
+if(saved){cart=[];promo=null;persist();renderCart();myOrders=null}
 if(user&&$('#cSave')?.checked){const d={name:info.name.slice(0,80),phone:info.phone,gi:info.g,addr:info.addr.slice(0,400)};profile={...profile,...d};fdb.collection('users').doc(user.uid).set(d,{merge:true}).catch(()=>{})}
 openModal(`<div class="ok"><div class="ck">✓</div><h2>${t('okT')}</h2><p>${esc(t(saved?'okLive':'okP',info.n))}</p><a class="btn wa" target="_blank" rel="noopener" href="${link}" id="okWa">${t(saved?'waOpt':'sendWa')}</a><button class="btn o" data-close>${t('keep')}</button></div>`);
-if(!saved)$('#okWa').addEventListener('click',()=>{cart=[];promo=false;persist();renderCart()})});
+if(!saved)$('#okWa').addEventListener('click',()=>{cart=[];promo=null;persist();renderCart()})});
 $('#cartBtn').onclick=openDrawer;$('#fcart').onclick=openDrawer;$('#ov').onclick=closeAll;
 $('#favBtn').onclick=()=>{cat='fav';chips();grid();$('#shop').scrollIntoView()};
 $('#menuBtn').onclick=()=>$('#mnav').classList.toggle('open');
@@ -518,15 +569,17 @@ $('#langBtn').onclick=()=>{L=L==='ar'?'en':'ar';save('lang',L);applyLang()};
 $('#q').oninput=e=>{q=e.target.value;grid()};$('#sort').onchange=e=>{sort=e.target.value;grid()};
 $('#copyCode').onclick=async()=>{try{await navigator.clipboard.writeText(CODE)}catch(err){}toast(t('copied'))};
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeAll()});
-async function boot(){hero();applyLang();if(!live)return;
+async function boot(){P.forEach(normP);hero();applyLang();fromHash();if(!live)return;
  try{firebase.initializeApp(window.FIREBASE_CONFIG);fdb=firebase.firestore();
  if(firebase.auth){auth=firebase.auth();auth.onAuthStateChanged(async u=>{user=u;$('#accDot').hidden=!u;myOrders=null;profile={};if(u){try{const x=await fdb.collection('users').doc(u.uid).get();profile=x.exists?x.data():{name:u.displayName||''}}catch(err){}}if(accOpen)drawAcc()})}
  const [ps,st]=await Promise.all([fdb.collection('products').where('active','==',true).get(),fdb.collection('settings').doc('main').get()]);
  if(st.exists){const x=st.data();if(x.wa)WA=String(x.wa).replace(/\D/g,'');if(+x.free>=0)FREE=+x.free;if(x.code)CODE=String(x.code).toUpperCase();if(+x.pct>=0)OFF=+x.pct/100}
- P=ps.docs.map(d=>fromDoc(d.id,d.data())).sort((a,b)=>a.ord-b.ord);
+ P=ps.docs.map(d=>normP(fromDoc(d.id,d.data()))).sort((a,b)=>a.ord-b.ord);
+ try{const rs=await fdb.collection('reviews').limit(1000).get();RV={};rs.docs.forEach(d=>{const r=d.data();if(!r.pid)return;(RV[r.pid]=RV[r.pid]||[]).push({oid:r.oid,name:r.name,stars:Math.min(5,Math.max(1,+r.stars||5)),text:r.text||'',ts:r.createdAt?.toMillis?.()||0})});Object.values(RV).forEach(a=>a.sort((x,y)=>y.ts-x.ts))}catch(err){console.warn(err)}
  cart=cart.filter(i=>byId(i.id));fav=fav.filter(id=>byId(id));persist();
- const sm=document.querySelector('[data-i=sample]');if(sm)sm.remove();applyLang()}catch(err){console.warn('Firebase:',err)}}
+ const sm=document.querySelector('[data-i=sample]');if(sm)sm.remove();applyLang();fromHash()}catch(err){console.warn('Firebase:',err)}}
 boot();
+if('serviceWorker' in navigator&&location.protocol==='https:')navigator.serviceWorker.register('sw.js').catch(()=>{});
 }
 </script>
 </body>
