@@ -1,0 +1,37 @@
+rules_version = '2';
+// قواعد حماية قاعدة بيانات فيلورا
+// ← غيّر الإيميل اللي تحت لإيميل حسابك في Authentication (ممكن تضيف أكتر من إيميل)
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isAdmin() {
+      return request.auth != null
+        && request.auth.token.email in ['your-email@gmail.com'];
+    }
+
+    // المنتجات والإعدادات: أي حد يقرأها، والأدمن بس يعدّل
+    match /products/{id} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+    match /settings/{id} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    // الطلبات: العميل يقدر يعمل طلب جديد بس، والأدمن بس يشوف ويعدّل ويحذف
+    match /orders/{id} {
+      allow create: if request.resource.data.keys().hasOnly(['n','items','subtotal','discount','shipping','total','name','phone','gov','addr','notes','pay','lang','status','createdAt'])
+        && request.resource.data.status == 'new'
+        && request.resource.data.createdAt == request.time
+        && request.resource.data.phone is string
+        && request.resource.data.phone.matches('^01[0125][0-9]{8}$')
+        && request.resource.data.name is string && request.resource.data.name.size() <= 80
+        && request.resource.data.addr is string && request.resource.data.addr.size() <= 400
+        && request.resource.data.items is list
+        && request.resource.data.items.size() > 0 && request.resource.data.items.size() <= 50
+        && request.resource.data.total is number;
+      allow read, update, delete: if isAdmin();
+    }
+  }
+}
